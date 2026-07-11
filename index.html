@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ética — Uma exploração dos princípios que orientam a conduta humana e a vida em sociedade.">
+  <title>Ética — Reflexões sobre o Agir Humano</title>
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    :root {
+      --bg: #f2efe2;
+      --bg-alt: #e9e5da;
+      --fg: #302d25;
+      --fg-sec: #6d6860;
+      --accent: #b58c28;
+      --accent-h: #9d7820;
+      --teal: #3a6568;
+      --teal-l: #4d8185;
+      --border: #d0cbc0;
+      --card: #f8f6f0;
+      --hero-bg: #171c36;
+      --hero-fg: #dfdad0;
+      --hero-muted: #95918a;
+      --gold-glow: rgba(181, 140, 40, 0.10);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1220;
+        --bg-alt: #141828;
+        --fg: #d4d0c5;
+        --fg-sec: #87837a;
+        --accent: #cda53c;
+        --accent-h: #ddb952;
+        --teal: #5a9295;
+        --teal-l: #70abae;
+        --border: #252a3e;
+        --card: #191e30;
+        --hero-bg: #0a0d18;
+        --hero-fg: #d4d0c5;
+        --hero-muted: #706d64;
+        --gold-glow: rgba(205, 165, 60, 0.07);
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #0f1220;
+      --bg-alt: #141828;
+      --fg: #d4d0c5;
+      --fg-sec: #87837a;
+      --accent: #cda53c;
+      --accent-h: #ddb952;
+      --teal: #5a9295;
+      --teal-l: #70abae;
+      --border: #252a3e;
+      --card: #191e30;
+      --hero-bg: #0a0d18;
+      --hero-fg: #d4d0c5;
+      --hero-muted: #706d64;
+      --gold-glow: rgba(205, 165, 60, 0.07);
+    }
+
+    :root[data-theme="light"] {
+      --bg: #f2efe2;
+      --bg-alt: #e9e5da;
+      --fg: #302d25;
+      --fg-sec: #6d6860;
+      --accent: #b58c28;
+      --accent-h: #9d7820;
+      --teal: #3a6568;
+      --teal-l: #4d8185;
+      --border: #d0cbc0;
+      --card: #f8f6f0;
+      --hero-bg: #171c36;
+      --hero-fg: #dfdad0;
+      --hero-muted: #95918a;
+      --gold-glow: rgba(181, 140, 40, 0.10);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, Georgia, serif;
+      font-size: 1.125rem;
+      line-height: 1.76;
+      color: var(--fg);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent-h); }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+    img { max-width: 100%; display: block; }
+
+    /* Nav */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
+      height: 52px;
+      background: color-mix(in srgb, var(--hero-bg) 92%, transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-brand {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--hero-muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--hero-fg); }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: max(70vh, 480px);
+      padding: 5rem clamp(1.25rem, 4vw, 3rem);
+      background: var(--hero-bg);
+      overflow: hidden;
+    }
+
+    .hero-canvas {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      opacity: 0.55;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+      display: block;
+    }
+
+    .hero h1 {
+      font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.28;
+      color: var(--hero-fg);
+      text-wrap: balance;
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+
+    .gold-rule {
+      border: none;
+      width: 60px;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 auto 2rem;
+    }
+
+    .hero-sub {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--hero-muted);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* Content wrapper */
+    .content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 4vw, 2rem);
+    }
+
+    /* Sections */
+    .section {
+      padding: 5rem 0;
+      background: var(--bg);
+    }
+
+    .section--alt {
+      background: var(--bg-alt);
+    }
+
+    .section h2 {
+      font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--fg);
+      margin-bottom: 1rem;
+      text-wrap: balance;
+    }
+
+    .section-label {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    .section p {
+      margin-bottom: 1.25rem;
+      color: var(--fg);
+    }
+
+    .lead {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: var(--fg-sec);
+      margin-bottom: 2rem;
+    }
+
+    /* Pull quote */
+    .pullquote {
+      border-left: 2px solid var(--accent);
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      margin: 2.5rem 0;
+      font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      line-height: 1.65;
+      color: var(--fg);
+    }
+
+    .pullquote cite {
+      display: block;
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      font-style: normal;
+      color: var(--fg-sec);
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    /* Principles */
+    .principle {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .principle:last-child { border-bottom: none; }
+
+    .principle-label {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .principle h3 {
+      font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--fg);
+      margin-bottom: 1rem;
+    }
+
+    .principle p {
+      color: var(--fg-sec);
+      font-size: 1.05rem;
+      line-height: 1.72;
+    }
+
+    /* Thinkers */
+    .thinker {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .thinker:last-child { border-bottom: none; }
+
+    .thinker-name {
+      font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--fg);
+      line-height: 1.3;
+      margin-bottom: 0.25rem;
+    }
+
+    .thinker-dates {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.78rem;
+      color: var(--fg-sec);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .thinker-school {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 0.75rem;
+      display: block;
+    }
+
+    .thinker-body p {
+      color: var(--fg-sec);
+      font-size: 1.02rem;
+      line-height: 1.72;
+    }
+
+    /* Applied ethics */
+    .domains {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .domain {
+      padding: 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+
+    .domain h4 {
+      font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--fg);
+      margin-bottom: 0.5rem;
+    }
+
+    .domain p {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--fg-sec);
+      margin-bottom: 0;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--hero-bg);
+      color: var(--hero-fg);
+      padding: 5rem clamp(1.25rem, 4vw, 2rem);
+      text-align: center;
+    }
+
+    .footer-quote {
+      max-width: 580px;
+      margin: 0 auto 2rem;
+      font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+      font-size: 1.25rem;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--hero-fg);
+    }
+
+    .footer-quote cite {
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      font-style: normal;
+      color: var(--hero-muted);
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    .footer-note {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.78rem;
+      color: var(--hero-muted);
+      letter-spacing: 0.02em;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .hero { min-height: max(55vh, 380px); padding: 3.5rem 1.25rem; }
+      .section { padding: 3.5rem 0; }
+      .thinker {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+      .thinker-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0.5rem 1rem;
+      }
+      .thinker-school { margin-top: 0; }
+      .domains { grid-template-columns: 1fr; }
+      .content { padding: 0 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" role="navigation" aria-label="Principal">
+  <span class="nav-brand">Ética</span>
+  <ul class="nav-links">
+    <li><a href="#introducao">Introdução</a></li>
+    <li><a href="#principios">Princípios</a></li>
+    <li><a href="#pensadores">Pensadores</a></li>
+    <li><a href="#pratica">Na Prática</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <canvas class="hero-canvas" id="heroGeo" width="460" height="460" aria-hidden="true"></canvas>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Ética</span>
+    <h1>A ética começa onde termina a indiferença.</h1>
+    <hr class="gold-rule">
+    <p class="hero-sub">Uma exploração dos princípios que orientam a conduta humana e a vida em sociedade</p>
+  </div>
+</header>
+
+<main>
+  <section class="section" id="introducao">
+    <div class="content">
+      <span class="section-label reveal">Introdução</span>
+      <h2 class="reveal">O que é Ética?</h2>
+      <p class="lead reveal">Do grego <em>êthos</em> — caráter, costume, modo de ser — a ética é o ramo da filosofia que investiga os fundamentos da ação humana: o que devemos fazer, como devemos viver e por quê.</p>
+      <p class="reveal">Diferente da moral, que se refere ao conjunto de normas e costumes aceitos por uma comunidade em dado momento histórico, a ética é a reflexão crítica sobre essas normas. Enquanto a moral diz "faça isto", a ética pergunta "por que devo fazê-lo?" É uma disciplina que não oferece respostas prontas, mas exige de nós o exercício constante do pensamento.</p>
+      <p class="reveal">A ética não é propriedade de filósofos. Ela habita cada decisão cotidiana — do modo como tratamos um estranho à forma como conduzimos nosso trabalho. Está presente quando escolhemos ser honestos mesmo sem testemunhas, quando reconhecemos a dignidade de quem é diferente de nós, quando ponderamos as consequências de nossos atos sobre aqueles que ainda não nasceram.</p>
+
+      <blockquote class="pullquote reveal">
+        O homem não é senão o que ele faz de si mesmo.
+        <cite>Jean-Paul Sartre, <em>O Existencialismo é um Humanismo</em>, 1946</cite>
+      </blockquote>
+
+      <p class="reveal">Estudar ética é, antes de tudo, aceitar que a liberdade de escolha traz consigo a responsabilidade pelo que escolhemos. E que viver entre outros seres humanos impõe limites ao nosso desejo — limites que não diminuem a liberdade, mas lhe dão sentido.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="principios">
+    <div class="content">
+      <span class="section-label reveal">Fundamentos</span>
+      <h2 class="reveal">Princípios Fundamentais</h2>
+      <p class="lead reveal">Ao longo de milênios de reflexão filosófica, certos princípios emergiram como pilares do pensamento ético. Não são dogmas, mas horizontes que orientam o juízo moral.</p>
+
+      <div class="principle reveal">
+        <span class="principle-label">Justiça</span>
+        <h3>Dar a cada um o que lhe é devido</h3>
+        <p>A justiça não se resume à igualdade formal. Envolve reconhecer que pessoas em situações desiguais precisam de tratamentos proporcionais. Aristóteles distinguia a justiça distributiva — como repartir bens e oportunidades — da justiça corretiva — como reparar danos e punir transgressões. Uma sociedade ética é, antes de tudo, uma sociedade que busca ser justa.</p>
+      </div>
+
+      <div class="principle reveal">
+        <span class="principle-label">Dignidade Humana</span>
+        <h3>Todo ser humano é um fim em si mesmo</h3>
+        <p>A dignidade é o valor intrínseco e inegociável de cada pessoa. Kant formulou esse princípio como imperativo: "Age de tal modo que trates a humanidade, tanto na tua pessoa como na de qualquer outro, sempre como um fim e nunca meramente como um meio." Esse princípio é a base dos direitos humanos e o argumento mais forte contra toda forma de instrumentalização do outro.</p>
+      </div>
+
+      <div class="principle reveal">
+        <span class="principle-label">Responsabilidade</span>
+        <h3>Responder pelos próprios atos e suas consequências</h3>
+        <p>Ser responsável é reconhecer-se como autor de suas ações e aceitar as consequências que delas decorrem — inclusive as não intencionais. Hans Jonas ampliou esse conceito para a era tecnológica: somos responsáveis não apenas pelo que fazemos hoje, mas pelo mundo que deixaremos para as gerações futuras. A responsabilidade é o preço da liberdade.</p>
+      </div>
+
+      <div class="principle reveal">
+        <span class="principle-label">Autonomia</span>
+        <h3>A capacidade de se dar as próprias leis</h3>
+        <p>Autonomia não é fazer o que se quer, mas ter a capacidade de decidir por si mesmo segundo princípios racionais. Respeitar a autonomia alheia significa reconhecer o direito de cada pessoa a fazer suas próprias escolhas — desde que estas não violem a dignidade e a liberdade dos outros. A autonomia exige informação, reflexão e ausência de coerção.</p>
+      </div>
+
+      <div class="principle reveal">
+        <span class="principle-label">Bem Comum</span>
+        <h3>O que é bom para todos, não apenas para cada um</h3>
+        <p>O bem comum transcende a soma dos interesses individuais. É o conjunto de condições sociais que permitem a todos — e a cada um — alcançar uma vida plena. Inclui a paz, a justiça, o acesso à educação e à saúde, a preservação do meio ambiente. Uma ética centrada apenas no indivíduo é incompleta; viver eticamente é também cuidar do mundo que compartilhamos.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pensadores">
+    <div class="content">
+      <span class="section-label reveal">Pensamento</span>
+      <h2 class="reveal">Grandes Pensadores</h2>
+      <p class="lead reveal">A história da ética foi construída por vozes que ousaram perguntar: o que significa viver bem? Cada um desses pensadores ofereceu uma resposta diferente — e a tensão entre elas é o que mantém a ética viva.</p>
+
+      <div class="thinker reveal">
+        <div class="thinker-meta">
+          <span class="thinker-name">Aristóteles</span>
+          <span class="thinker-dates">384–322 a.C.</span>
+          <span class="thinker-school">Ética das Virtudes</span>
+        </div>
+        <div class="thinker-body">
+          <p>Para Aristóteles, a vida ética não se resume a seguir regras, mas a cultivar virtudes — coragem, temperança, justiça, prudência — até que se tornem hábitos. A felicidade (<em>eudaimonia</em>) não é prazer momentâneo, mas a realização plena do potencial humano. A chave é a <em>phronesis</em>, a sabedoria prática: saber agir na medida certa, no momento certo, pelo motivo certo.</p>
+        </div>
+      </div>
+
+      <div class="thinker reveal">
+        <div class="thinker-meta">
+          <span class="thinker-name">Immanuel Kant</span>
+          <span class="thinker-dates">1724–1804</span>
+          <span class="thinker-school">Ética do Dever</span>
+        </div>
+        <div class="thinker-body">
+          <p>Kant propôs que a moralidade não depende das consequências de nossos atos, mas da intenção com que agimos. O imperativo categórico — "Age apenas segundo a máxima pela qual possas ao mesmo tempo querer que ela se torne uma lei universal" — é o critério supremo da ação moral. Para Kant, a boa vontade é a única coisa boa sem restrição, e o dever é a marca da verdadeira moralidade.</p>
+        </div>
+      </div>
+
+      <div class="thinker reveal">
+        <div class="thinker-meta">
+          <span class="thinker-name">Simone de Beauvoir</span>
+          <span class="thinker-dates">1908–1986</span>
+          <span class="thinker-school">Ética da Liberdade</span>
+        </div>
+        <div class="thinker-body">
+          <p>Beauvoir mostrou que a liberdade não existe no abstrato: ela é sempre situada, atravessada por gênero, classe e história. Em <em>Por uma Moral da Ambiguidade</em>, argumentou que a liberdade de cada um só se realiza quando luta pela liberdade dos outros. A ética não é um conjunto de certezas, mas o enfrentamento corajoso da ambiguidade da condição humana.</p>
+        </div>
+      </div>
+
+      <div class="thinker reveal">
+        <div class="thinker-meta">
+          <span class="thinker-name">Hans Jonas</span>
+          <span class="thinker-dates">1903–1993</span>
+          <span class="thinker-school">Ética da Responsabilidade</span>
+        </div>
+        <div class="thinker-body">
+          <p>Jonas reformulou a ética para a era tecnológica. Quando o poder humano de transformar — e destruir — a natureza se tornou global, as éticas tradicionais já não bastavam. Seu novo imperativo: "Age de tal modo que os efeitos de tua ação sejam compatíveis com a permanência de uma vida autenticamente humana sobre a Terra." A responsabilidade, para Jonas, estende-se ao futuro distante.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="pratica">
+    <div class="content">
+      <span class="section-label reveal">Aplicação</span>
+      <h2 class="reveal">Ética no Cotidiano</h2>
+      <p class="lead reveal">A ética não vive apenas nos tratados filosóficos. Ela se manifesta em cada decisão, em cada relação, em cada esfera da vida. Pensar eticamente é um exercício diário, não uma conquista definitiva.</p>
+
+      <p class="reveal">Vivemos em um tempo em que as questões éticas se multiplicam e se tornam mais complexas. A tecnologia amplia nosso poder de agir, mas não nos diz como agir bem. A globalização nos conecta a pessoas distantes cujas vidas são afetadas por nossas escolhas de consumo. A crise ambiental nos confronta com responsabilidades que nenhuma geração anterior precisou assumir.</p>
+
+      <div class="domains reveal">
+        <div class="domain">
+          <h4>No Trabalho</h4>
+          <p>Honestidade nas relações profissionais, respeito aos colegas e clientes, recusa à corrupção, compromisso com a qualidade — a ética profissional é o fundamento da confiança social.</p>
+        </div>
+        <div class="domain">
+          <h4>Na Tecnologia</h4>
+          <p>Privacidade de dados, viés algorítmico, inteligência artificial, desinformação — o mundo digital exige novos marcos éticos para problemas que não existiam há uma geração.</p>
+        </div>
+        <div class="domain">
+          <h4>No Meio Ambiente</h4>
+          <p>A ética ambiental nos pede para considerar a Terra não como recurso a ser explorado, mas como casa compartilhada — com outras espécies e com as gerações que virão depois de nós.</p>
+        </div>
+        <div class="domain">
+          <h4>Nas Relações</h4>
+          <p>Empatia, escuta, respeito à diferença, honestidade afetiva — a ética das relações interpessoais é o terreno mais íntimo e mais exigente da vida moral.</p>
+        </div>
+      </div>
+
+      <blockquote class="pullquote reveal">
+        Não é possível viver eticamente sem se engajar no mundo e assumir os riscos desse engajamento.
+        <cite>Simone de Beauvoir, <em>Por uma Moral da Ambiguidade</em>, 1947</cite>
+      </blockquote>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <blockquote class="footer-quote reveal">
+    "Age de tal modo que os efeitos de tua ação sejam compatíveis com a permanência de uma vida autenticamente humana sobre a Terra."
+    <cite>Hans Jonas, <em>O Princípio Responsabilidade</em>, 1979</cite>
+  </blockquote>
+  <p class="footer-note reveal">Ética — Reflexões sobre o Agir Humano</p>
+</footer>
+
+<script>
+(function () {
+  var c = document.getElementById('heroGeo');
+  if (c && c.getContext) {
+    var ctx = c.getContext('2d');
+    var w = c.width, h = c.height;
+    var cx = w / 2, cy = h / 2;
+    var gold = 'rgba(181, 140, 40, 0.13)';
+    ctx.strokeStyle = gold;
+    ctx.lineWidth = 0.8;
+
+    for (var r = 28; r <= 210; r += 36) {
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+
+    for (var i = 0; i < 12; i++) {
+      var angle = (i * Math.PI * 2) / 12;
+      ctx.beginPath();
+      ctx.moveTo(cx + Math.cos(angle) * 20, cy + Math.sin(angle) * 20);
+      ctx.lineTo(cx + Math.cos(angle) * 215, cy + Math.sin(angle) * 215);
+      ctx.stroke();
+    }
+
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy - 218);
+    ctx.lineTo(cx + 10, cy - 190);
+    ctx.lineTo(cx, cy - 170);
+    ctx.lineTo(cx - 10, cy - 190);
+    ctx.closePath();
+    ctx.stroke();
+  }
+
+  var els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function (el) { obs.observe(el); });
+  } else {
+    els.forEach(function (el) { el.classList.add('visible'); });
+  }
+})();
+</script>
+
+</body>
+</html>
