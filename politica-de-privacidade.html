@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Política de Privacidade — Ética Empreendimentos Imobiliários Ltda.">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://www.eticaempreendimentos.com.br/politica-de-privacidade.html">
+  <meta name="theme-color" content="#3A3F45">
+  <link rel="icon" type="image/svg+xml" href="assets/Etica-icone.svg">
+  <title>Política de Privacidade — Ética Empreendimentos</title>
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    :root {
+      --charcoal: #3A3F45;
+      --charcoal-dark: #2B2F33;
+      --sand: #E8DCC8;
+      --sand-light: #F2EDE1;
+      --red: #B7242C;
+      --red-hover: #9E1E25;
+      --white: #FFFFFF;
+      --gray-200: #E0DAD0;
+      --gray-400: #9A948A;
+      --gray-500: #6B665E;
+
+      --bg: var(--white);
+      --bg-alt: var(--sand-light);
+      --bg-dark: var(--charcoal);
+      --bg-dark-deep: var(--charcoal-dark);
+      --fg: var(--charcoal);
+      --fg-sec: var(--gray-500);
+      --fg-on-dark: var(--sand-light);
+      --fg-on-dark-sec: var(--gray-400);
+      --border: var(--gray-200);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1a1c1f;
+        --bg-alt: #222528;
+        --bg-dark: #111315;
+        --bg-dark-deep: #0c0d0f;
+        --fg: #ddd9d0;
+        --fg-sec: #908b82;
+        --fg-on-dark: #ddd9d0;
+        --fg-on-dark-sec: #7a766e;
+        --border: #333639;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #1a1c1f;
+      --bg-alt: #222528;
+      --bg-dark: #111315;
+      --bg-dark-deep: #0c0d0f;
+      --fg: #ddd9d0;
+      --fg-sec: #908b82;
+      --fg-on-dark: #ddd9d0;
+      --fg-on-dark-sec: #7a766e;
+      --border: #333639;
+    }
+
+    :root[data-theme="light"] {
+      --bg: var(--white);
+      --bg-alt: var(--sand-light);
+      --bg-dark: var(--charcoal);
+      --bg-dark-deep: var(--charcoal-dark);
+      --fg: var(--charcoal);
+      --fg-sec: var(--gray-500);
+      --fg-on-dark: var(--sand-light);
+      --fg-on-dark-sec: var(--gray-400);
+      --border: var(--gray-200);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--fg);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--red); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--red-hover); }
+    a:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+    img { max-width: 100%; display: block; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      height: 64px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo { height: 32px; width: auto; }
+
+    .nav-back {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--fg-sec);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-back:hover { color: var(--fg); }
+
+    .nav-back svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .page-header {
+      background: var(--bg-dark);
+      padding: 4rem clamp(1.5rem, 5vw, 4rem) 3rem;
+    }
+
+    .page-header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .page-header h1 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--fg-on-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header p {
+      font-size: 0.9rem;
+      color: var(--fg-on-dark-sec);
+    }
+
+    .content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 5vw, 4rem);
+    }
+
+    .content h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--fg);
+      margin: 2.5rem 0 0.75rem;
+      line-height: 1.3;
+    }
+
+    .content h2:first-child { margin-top: 0; }
+
+    .content p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--fg-sec);
+      margin-bottom: 1rem;
+    }
+
+    .content ul {
+      margin: 0.5rem 0 1rem 1.5rem;
+      color: var(--fg-sec);
+      line-height: 1.75;
+    }
+
+    .content ul li { margin-bottom: 0.35rem; }
+
+    .content strong { color: var(--fg); font-weight: 600; }
+
+    .footer {
+      background: var(--bg-dark-deep);
+      padding: 2rem clamp(1.5rem, 5vw, 4rem);
+    }
+
+    .footer-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .footer-logo { height: 24px; width: auto; opacity: 0.6; }
+
+    .footer-text {
+      font-size: 0.72rem;
+      color: var(--fg-on-dark-sec);
+      opacity: 0.6;
+      text-align: right;
+    }
+
+    @media (max-width: 480px) {
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-text { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" role="navigation">
+  <a href="index.html" aria-label="Ética — Página inicial">
+    <img src="assets/Etica-logo-principal.svg" alt="Ética Empreendimentos Imobiliários" class="nav-logo">
+  </a>
+  <a href="index.html" class="nav-back">
+    <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Voltar ao site
+  </a>
+</nav>
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <h1>Política de Privacidade</h1>
+    <p>Última atualização: julho de 2025</p>
+  </div>
+</header>
+
+<main class="content">
+
+  <h2>1. Introdução</h2>
+  <p>A <strong>Ética Empreendimentos Imobiliários Ltda.</strong> (CNPJ 16.902.625/0001-89), com sede na Rua Virgílio Gomes Ferreira, 47, Centro, Guaraciaba/MG, é a controladora responsável pelo tratamento dos seus dados pessoais.</p>
+  <p>Esta Política de Privacidade descreve como coletamos, utilizamos, armazenamos e protegemos suas informações pessoais, em conformidade com a Lei Geral de Proteção de Dados Pessoais (LGPD — Lei nº 13.709/2018).</p>
+
+  <h2>2. Dados que coletamos</h2>
+  <p>Podemos coletar as seguintes categorias de dados pessoais:</p>
+  <ul>
+    <li><strong>Dados de identificação:</strong> nome completo, CPF, RG, data de nascimento.</li>
+    <li><strong>Dados de contato:</strong> endereço, telefone, e-mail.</li>
+    <li><strong>Dados de navegação:</strong> endereço IP, tipo de navegador, páginas acessadas, horário de acesso (coletados automaticamente via cookies).</li>
+    <li><strong>Dados financeiros:</strong> informações necessárias para a formalização de contratos imobiliários, quando aplicável.</li>
+  </ul>
+
+  <h2>3. Finalidade do tratamento</h2>
+  <p>Utilizamos seus dados pessoais para as seguintes finalidades:</p>
+  <ul>
+    <li>Atender solicitações de contato e informações sobre empreendimentos.</li>
+    <li>Formalizar propostas, reservas e contratos de compra e venda.</li>
+    <li>Cumprir obrigações legais e regulatórias.</li>
+    <li>Enviar comunicações sobre novos empreendimentos e atualizações relevantes, mediante consentimento.</li>
+    <li>Melhorar a experiência de navegação no site.</li>
+  </ul>
+
+  <h2>4. Base legal</h2>
+  <p>O tratamento dos dados pessoais é realizado com base nas seguintes hipóteses previstas na LGPD:</p>
+  <ul>
+    <li>Consentimento do titular (Art. 7º, I).</li>
+    <li>Execução de contrato ou de procedimentos preliminares (Art. 7º, V).</li>
+    <li>Cumprimento de obrigação legal ou regulatória (Art. 7º, II).</li>
+    <li>Legítimo interesse do controlador (Art. 7º, IX).</li>
+  </ul>
+
+  <h2>5. Compartilhamento de dados</h2>
+  <p>Seus dados pessoais poderão ser compartilhados com:</p>
+  <ul>
+    <li>Parceiros envolvidos na execução de contratos imobiliários (cartórios, instituições financeiras, corretores).</li>
+    <li>Prestadores de serviços contratados para operação do site e comunicações.</li>
+    <li>Autoridades públicas, quando exigido por lei ou decisão judicial.</li>
+  </ul>
+  <p>Não comercializamos nem compartilhamos seus dados pessoais com terceiros para fins de marketing não autorizado.</p>
+
+  <h2>6. Cookies</h2>
+  <p>Este site utiliza cookies para melhorar a experiência de navegação. Os cookies são pequenos arquivos de texto armazenados no seu dispositivo que nos permitem reconhecer seu navegador e lembrar determinadas informações.</p>
+  <p>Você pode configurar seu navegador para recusar cookies, embora isso possa afetar a funcionalidade do site.</p>
+
+  <h2>7. Armazenamento e segurança</h2>
+  <p>Os dados pessoais são armazenados em ambientes seguros, com acesso restrito a pessoas autorizadas. Adotamos medidas técnicas e administrativas aptas a proteger os dados pessoais contra acessos não autorizados, destruição, perda, alteração ou tratamento inadequado.</p>
+  <p>Os dados serão mantidos pelo período necessário ao cumprimento das finalidades descritas nesta política ou conforme exigido por obrigação legal.</p>
+
+  <h2>8. Direitos do titular</h2>
+  <p>Em conformidade com a LGPD, você tem direito a:</p>
+  <ul>
+    <li>Confirmar a existência de tratamento dos seus dados.</li>
+    <li>Acessar seus dados pessoais.</li>
+    <li>Corrigir dados incompletos, inexatos ou desatualizados.</li>
+    <li>Solicitar a anonimização, bloqueio ou eliminação de dados desnecessários ou tratados em desconformidade.</li>
+    <li>Solicitar a portabilidade dos dados.</li>
+    <li>Revogar o consentimento a qualquer momento.</li>
+  </ul>
+  <p>Para exercer seus direitos, entre em contato pelo e-mail <a href="mailto:contato@eticaempreendimentos.com.br">contato@eticaempreendimentos.com.br</a>.</p>
+
+  <h2>9. Alterações nesta política</h2>
+  <p>Esta Política de Privacidade pode ser atualizada periodicamente. Recomendamos que você consulte esta página regularmente para se manter informado sobre eventuais alterações.</p>
+
+  <h2>10. Contato</h2>
+  <p>Para esclarecimentos sobre esta Política de Privacidade ou sobre o tratamento dos seus dados pessoais:</p>
+  <ul>
+    <li><strong>E-mail:</strong> <a href="mailto:contato@eticaempreendimentos.com.br">contato@eticaempreendimentos.com.br</a></li>
+    <li><strong>Endereço:</strong> Rua Virgílio Gomes Ferreira, 47 — Centro — Guaraciaba/MG</li>
+    <li><strong>Telefone:</strong> (31) 0 0000-0000</li>
+  </ul>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <img src="assets/Etica-logo-negativo.svg" alt="Ética" class="footer-logo">
+    <div class="footer-text">
+      &copy; 2025 Ética Empreendimentos Imobiliários Ltda.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
